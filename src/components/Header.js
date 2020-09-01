@@ -45,7 +45,7 @@ function Header() {
                 
             <div className="header__right">
                 <div className="header__info">
-                    <Avatar />
+                    <Avatar src='https://media.japanpowered.com/images/goku.png' />
                     <h4>Jack</h4>
                 </div>
 

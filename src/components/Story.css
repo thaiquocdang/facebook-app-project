@@ -1,0 +1,36 @@
+.story{
+    cursor: pointer;
+    margin-right: 10px;
+    height: 210px;
+    width: 130px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    box-shadow: 0px 5px 17px -7px rgba(0, 0, 0, 0.75);
+    transition: trasform 100ms ease-in;
+}
+
+.story:hover {
+    transform: scale(1.05);
+}
+
+.story * {
+    margin: 10px
+}
+
+.story .MuiAvatar-root{
+    border: 5px solid #2e81f4;
+    width: 32px;
+    height: 32px;
+}
+
+.story h4 {
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+}

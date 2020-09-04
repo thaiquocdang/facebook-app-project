@@ -7,14 +7,16 @@ import RedoOutlinedIcon from '@material-ui/icons/RedoOutlined';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-function Post({ userAvatar, userName, img, timestamp, message }) {
+function Post({ profilePic, userName, img, timestamp, message }) {
+    const postTime =  new Date(timestamp?.toDate()).toUTCString();
+    
     return (
         <div className="post">
             <div className="post__top">
-                <Avatar className="post__avatar" src={userAvatar}/>
+                <Avatar className="post__avatar" src={profilePic}/>
                 <div className="post__topInfo">
                     <h3>{userName}</h3>
-                    <p>1h</p>
+                    <p>{postTime}</p>
                 </div>
             </div>
             <div className="post__bottom">

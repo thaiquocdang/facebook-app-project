@@ -16,6 +16,7 @@
 .createPost__top form{
     display: flex;
     flex: 1;
+    margin-left: 10px;
 }
 
 .createPost__top > form > .createPost__input {

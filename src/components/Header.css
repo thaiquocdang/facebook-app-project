@@ -18,6 +18,7 @@
 .header__left{
     display: flex;
     align-items: center;
+    /* width: 20%; */
 }
 
 .header__input{
@@ -44,13 +45,16 @@
     align-items: center;
     justify-content: center;
     flex-grow: 1;
+    margin: auto 30px;
 }
 
 .header__option {
     cursor: pointer;
     display: flex;
+    justify-content: center;
+    flex: 1;
     align-items: center;
-    padding: 0 30px
+    padding: 0 30px;
     
 }
 
@@ -87,6 +91,12 @@
 .header__info{
     display: flex;
     align-items: center;
+    padding: 0 10px;
+    border-radius: 99px;
+    cursor: pointer;
+}
+.header__info:hover{
+    background-color: #eff2f5;
 }
 
 .header__info h4 {

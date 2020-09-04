@@ -8,11 +8,13 @@ import ForumIcon from '@material-ui/icons/Forum';
 import StorefrontIcon from '@material-ui/icons/Storefront';
 import OndemandVideoIcon from '@material-ui/icons/OndemandVideo';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { useStateValue } from '../API/StateProvider';
 
 function Sidebar() {
+    const [{ user }, dispatch] = useStateValue();
     return (
         <div className="sidebar">
-            <SidebarRow src='https://media.japanpowered.com/images/goku.png' title='Jack Dang' />
+            <SidebarRow src={user.photoURL} title={user.displayName} />
             <SidebarRow Icon={LocalHospitalIcon} title='COVID-19 Information Center'/>
             <SidebarRow Icon={EmojiFlagsIcon} title='Pages' />
             <SidebarRow Icon={PeopleAltIcon} title='Friends' />

@@ -4,13 +4,26 @@ import './CreatePost.css'
 import VideocamIcon from '@material-ui/icons/Videocam';
 import PhotoLibraryIcon from '@material-ui/icons/PhotoLibrary';
 import EmojiEmotionsOutlinedIcon from '@material-ui/icons/EmojiEmotionsOutlined';
+import { useStateValue } from '../API/StateProvider';
+import db from '../firebase';
+import firebase from 'firebase';
 
 function CreatePost() {
+    const [{ user }, dispatch] = useStateValue();
     const [input, setInput] = useState('')
     const [imgUrl, setImageUrl] = useState('')
-    console.log(input);
+    // console.log(input);
     const handleSubmit = (e) => {
         e.preventDefault();
+        
+        //add submission data (new post) to database
+        db.collection('posts').add({
+            message: input,
+            img: imgUrl,
+            profilePic: user.photoURL,
+            userName: user.displayName,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        })
 
         setInput("");
         setImageUrl('')
@@ -18,12 +31,12 @@ function CreatePost() {
     return (
         <div className="createPost">
             <div className="createPost__top">
-                <Avatar src="https://media.japanpowered.com/images/goku.png"/>
+                <Avatar src={user.photoURL}/>
                 <form>
                     <input 
                         value = {input}
                         onChange = {(e) => setInput(e.target.value)}
-                        placeholder="What's on your mind, Jack" 
+                        placeholder={`What's on your mind, ${user.displayName}`}
                         className="createPost__input"
                     />
                     <input 
